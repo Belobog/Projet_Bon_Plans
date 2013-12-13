@@ -1,5 +1,7 @@
 package fr.bonplans;
 
+import javax.activation.DataSource;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
@@ -35,6 +37,23 @@ public class Application {
         viewResolver.setTemplateEngine(engine());
         return viewResolver;
     }
+    
+    
+    //Objectif virer cette merde et la remplacer par un fichier xml
+    /*
+    
+    <bean id="dataSource"
+    		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     
+    		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    		<property name="url" value="jdbc:mysql://localhost:3306/mkyongjava" />
+    		<property name="username" value="root" />
+    		<property name="password" value="password" />
+    	</bean>
+    
+    */
+    
+    
     
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
