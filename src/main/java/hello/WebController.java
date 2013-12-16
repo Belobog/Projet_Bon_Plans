@@ -24,7 +24,7 @@ public class WebController {
     @RequestMapping(value="/", method=RequestMethod.POST)
     public String enterAge(@Valid Person person, BindingResult bindingResult, 
             RedirectAttributes redirectAttributes) {
-    	System.out.println("enterAge()");
+    	System.out.println("enterAge()"+person.getAge());
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("error", bindingResult.getFieldError().getDefaultMessage());
             return "redirect:/";

@@ -1,9 +1,14 @@
 package fr.bonplans.modele;
 
+import org.springframework.data.annotation.Id;
+
 import fr.bonplans.modele.interfaces.IAdresse;
 
 public class Adresse implements IAdresse{
 	
+	
+	@Id
+	private String id;
 	private String type;
 	private String numero;
 	private String type_de_voie;
@@ -12,6 +17,17 @@ public class Adresse implements IAdresse{
 	private String ville;
 	
 	
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getType() {
 		return type;
 	}

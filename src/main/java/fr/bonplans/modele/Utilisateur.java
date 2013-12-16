@@ -2,22 +2,50 @@ package fr.bonplans.modele;
 
 import java.util.ArrayList;
 
+
+
+
+
+
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import fr.bonplans.modele.interfaces.IAdresse;
 import fr.bonplans.modele.interfaces.IContact;
 import fr.bonplans.modele.interfaces.IUtilisateur;
 
 public class Utilisateur implements IUtilisateur{
 
-	
+	@Id
+    private String id;
+	@NotNull
 	private String pseudo;
 	private String role;
+	
 	private String password;
+	
 	private String nom;
+	
 	private String prenom;
+
+	
 	private String date_de_naissance;
 	private String date_inscription;
 	private ArrayList<IAdresse> adresses;
 	private ArrayList<IContact> contacts;
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getPseudo() {
 		return pseudo;
 	}

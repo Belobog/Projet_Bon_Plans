@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public interface IUtilisateur {
 	
+	public String getId();
+	public void setId(String id);
 	public String getPseudo() ;
 	public void setPseudo(String pseudo);
 	public String getRole() ;

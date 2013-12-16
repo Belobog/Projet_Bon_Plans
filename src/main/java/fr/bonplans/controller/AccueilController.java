@@ -18,6 +18,16 @@ public class AccueilController implements IAccueilController{
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String showAccueil() {
+    	System.out.println("Accueil");
+    	LocalTime currentTime = new LocalTime();
+	    System.out.println("The current local time is: " + currentTime);
+        return "Accueil";
+    }
+    
+    
+    @RequestMapping(value="/", method=RequestMethod.POST)
+    public String showAccueil2() {
+    	System.out.println("Accueil post");
     	LocalTime currentTime = new LocalTime();
 	    System.out.println("The current local time is: " + currentTime);
         return "Accueil";

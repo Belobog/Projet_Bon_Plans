@@ -36,15 +36,29 @@
 			</p>
 		</div>
 	</div>
-
-	<form  th:action="@{/Inscription}" th:object="${person}"
-		method="post">
+	<!-- 
+	<form  th:action="@{/Inscription}" th:object="${utilisateur}" method="post">
 		
-		<input type="text" th:field="*{age}" />
+		<input  type="text"  name="pseudo" th:field="*{pseudo}" />
+		<input  type="password"  name="password" th:field="*{password}" />
+		<input  type="text"  name="type" th:field="*{password}" />
 		<div id="errors" th:text="${error}" />
+		
+		
 		<button type="submit">Submit</button>
+		
 	</form>
+	 -->
 
+	<form th:action="@{/Inscription}" th:object="${utilisateur}" method="post" >
+		<input type="text" th:value="${utilisateur.pseudo}" name="pseudo" th:field="*{pseudo}"/>
+		<div id="errors" th:text="${error}" />
+		<input type="password" th:value="${utilisateur.password}" name="password"  />
+		<input type="text" th:value="${utilisateur.nom}" name="nom" />
+		<input type="text" th:value="${utilisateur.prenom}" name="prenom" />
+			
+		<button type="submit">Go</button>
+	</form>
 	<div class="container">
 		<!-- Example row of columns -->
 		<div class="row">
