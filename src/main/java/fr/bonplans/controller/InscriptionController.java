@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -44,7 +46,13 @@ public class InscriptionController implements IInscriptionController{
 	@RequestMapping(value="/Inscription", method=RequestMethod.POST)
     public String validerInscription(@Valid Utilisateur utilisateur , BindingResult bindingResult, 
             RedirectAttributes redirectAttributes) {
-    	
+		System.out.println("liste des erreurs");
+		for(FieldError error : bindingResult.getFieldErrors()){
+			String erreur = "error_"+error.getObjectName()+"_"+error.getField();
+			redirectAttributes.addFlashAttribute(erreur,error.getField()+" "+ bindingResult.getFieldError().getDefaultMessage());
+		}
+		System.out.println("-----------------------------------------------");
+    	/*
 		utilisateur.setRole("admin");
     	System.out.println("Avant");
     	System.out.println("pseudo vaut "+utilisateur.getPseudo());
@@ -52,7 +60,9 @@ public class InscriptionController implements IInscriptionController{
     	System.out.println("password vaut "+utilisateur.getPassword());
     	System.out.println("nom vaut "+utilisateur.getNom());
     	System.out.println("prenom vaut "+utilisateur.getPrenom());
-    	
+    	*/
+		
+		
     	//IUtilisateur utilisateur = new Utilisateur();
     	/*IAdresse adresse = new Adresse();
     	IContact contact = new Contact();
@@ -89,7 +99,7 @@ public class InscriptionController implements IInscriptionController{
     	System.out.println("Après");
         if (bindingResult.hasErrors()) {
         	System.out.println("Dans le if");
-            redirectAttributes.addFlashAttribute("error", bindingResult.getFieldError().getDefaultMessage());
+            //redirectAttributes.addFlashAttribute("error_pseudo", bindingResult.getFieldError().getDefaultMessage());
             return "redirect:/Inscription";
         }
         return "rest";

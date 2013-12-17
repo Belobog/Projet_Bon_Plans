@@ -7,9 +7,15 @@ import java.util.ArrayList;
 
 
 
+
+
+
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,21 +24,25 @@ import fr.bonplans.modele.interfaces.IAdresse;
 import fr.bonplans.modele.interfaces.IContact;
 import fr.bonplans.modele.interfaces.IUtilisateur;
 
-public class Utilisateur implements IUtilisateur{
+public class Utilisateur /*implements IUtilisateur*/{
 
 	@Id
     private String id;
-	@NotNull
+	
+	@NotEmpty
 	private String pseudo;
 	private String role;
 	
+	@NotEmpty
 	private String password;
 	
+	@NotEmpty
 	private String nom;
 	
+	@NotEmpty
 	private String prenom;
 
-	
+	@NotEmpty
 	private String date_de_naissance;
 	private String date_inscription;
 	private ArrayList<IAdresse> adresses;
@@ -46,12 +56,14 @@ public class Utilisateur implements IUtilisateur{
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	public String getPseudo() {
 		return pseudo;
 	}
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -105,4 +117,5 @@ public class Utilisateur implements IUtilisateur{
 	
 	
 
+	
 }

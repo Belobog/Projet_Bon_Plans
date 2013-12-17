@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,113 +37,119 @@
 			</p>
 		</div>
 	</div>
-	<!-- 
-	<form  th:action="@{/Inscription}" th:object="${utilisateur}" method="post">
-		
-		<input  type="text"  name="pseudo" th:field="*{pseudo}" />
-		<input  type="password"  name="password" th:field="*{password}" />
-		<input  type="text"  name="type" th:field="*{password}" />
-		<div id="errors" th:text="${error}" />
-		
-		
-		<button type="submit">Submit</button>
-		
-	</form>
-	 -->
 
-	<form th:action="@{/Inscription}" th:object="${utilisateur}" method="post" >
-		<input type="text" th:value="${utilisateur.pseudo}" name="pseudo" th:field="*{pseudo}"/>
-		<div id="errors" th:text="${error}" />
-		<input type="password" th:value="${utilisateur.password}" name="password"  />
+	<!-- 
+	<form th:action="@{/Inscription}" method="post">
+
+
+		<input type="password" th:value="${utilisateur.pseudo}" name="pseudo" />
+		<div id="errors" th:text="${error_utilisateur_pseudo}" />
+		<input type="password" th:value="${utilisateur.password}"
+			name="password" />
+		<div id="errors" th:text="${error_utilisateur_password}" />
+
 		<input type="text" th:value="${utilisateur.nom}" name="nom" />
+		<div id="errors" th:text="${error_utilisateur_nom}" />
 		<input type="text" th:value="${utilisateur.prenom}" name="prenom" />
-			
+		<div id="errors" th:text="${error_utilisateur_prenom}" />
+
+		<input type="text" th:value="${utilisateur.date_de_naissance}"
+			name="date_de_naissance" />
+		<div id="errors" th:text="${error_utilisateur_date_de_naissance}" />
+
 		<button type="submit">Go</button>
 	</form>
-	<div class="container">
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
+	 -->
+	<form th:action="@{/Inscription}" method="post">
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Pseudo</h2>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-user"></span> </span> <input name="pseudo"
+							type="text" th:value="${utilisateur.pseudo}" class="form-control"
+							placeholder="Pseudo" />
+					</div>
+					<p>
+					<div id="errors" th:text="${error_utilisateur_pseudo}"></div>
+					</p>
+
+				</div>
+				<!-- 
+		<div id="errors" th:text="${error_utilisateur_pseudo}" />
+ -->
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<div class="form-group has-error">
+						<label class="control-label" for="inputError">Input with
+							error</label> <input type="text" class="form-control" id="inputError"/>
+					</div>
+
+
+
+				</div>
+
+
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
+						in, egestas eget quam. Vestibulum id ligula porta felis euismod
+						semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+						condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p>
+						<a class="btn btn-default" href="#" role="button">View details
+							&raquo;</a>
+					</p>
+				</div>
 			</div>
-			
-			
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa justo sit amet risus.</p>
-					
-				
-				
+
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce
+						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+						magna mollis euismod. Donec sed odio dui.</p>
+					<p>
+						<a class="btn btn-default" href="#" role="button">View details
+							&raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce
+						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+						magna mollis euismod. Donec sed odio dui.</p>
+					<p>
+						<a class="btn btn-default" href="#" role="button">View details
+							&raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Heading</h2>
+					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
+						in, egestas eget quam. Vestibulum id ligula porta felis euismod
+						semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+						condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p>
+						<a class="btn btn-default" href="#" role="button">View details
+							&raquo;</a>
+					</p>
+				</div>
 			</div>
-			
-			
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa justo sit amet risus.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
+
+			<hr />
+
+			<footer>
+				<p>&copy; Company 2013</p>
+			</footer>
 		</div>
-
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa justo sit amet risus.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-		</div>
-
-		<hr />
-
-		<footer>
-			<p>&copy; Company 2013</p>
-		</footer>
-	</div>
+		<button type="submit">Go</button>
+	</form>
 	<!-- /container -->
 
 
