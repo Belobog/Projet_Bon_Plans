@@ -16,7 +16,7 @@ import fr.bonplans.modele.Person;
 @Controller
 public class AccueilController implements IAccueilController{
 
-    @RequestMapping(value="/", method=RequestMethod.GET)
+    @RequestMapping(value={"/","/Accueil"}, method=RequestMethod.GET)
     public String showAccueil() {
     	System.out.println("Accueil");
     	LocalTime currentTime = new LocalTime();
@@ -25,7 +25,7 @@ public class AccueilController implements IAccueilController{
     }
     
     
-    @RequestMapping(value="/", method=RequestMethod.POST)
+    @RequestMapping(value={"/","/Accueil"}, method=RequestMethod.POST)
     public String showAccueil2() {
     	System.out.println("Accueil post");
     	LocalTime currentTime = new LocalTime();

@@ -34,8 +34,8 @@ import fr.bonplans.repositories.UtilisateurRepository;
 @Controller
 public class InscriptionController implements IInscriptionController{
 	
-	@Autowired
-	private UtilisateurRepository repository;
+	//@Autowired
+	//private UtilisateurRepository repository;
 	
 	@RequestMapping(value="/Inscription", method=RequestMethod.GET)
     public String showInscription(Utilisateur utilisateur) {

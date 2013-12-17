@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +10,7 @@
 
 <!--a mettre en haut  -->
 
-<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="/css/bootstrap.css" rel="stylesheet" />
 
 <title>Inscription</title>
 
@@ -157,6 +156,6 @@
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

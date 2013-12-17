@@ -17,7 +17,7 @@
 		<!-- use UTF-8 for everything -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<start-class>fr.bonplans.Application</start-class>
+		
 	</properties>
 
 	<build>
@@ -33,6 +33,11 @@
 	</build>
 
 	<dependencies>
+	<dependency>
+    <groupId>commons-digester</groupId>
+    <artifactId>commons-digester</artifactId>
+    <version>2.1</version>
+</dependency>
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -83,4 +88,5 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+	<packaging>war</packaging>
 </project>
