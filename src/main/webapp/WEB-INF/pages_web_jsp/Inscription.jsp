@@ -12,7 +12,8 @@
 <!--a mettre en haut  -->
 
 
-<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.css" />"
+	rel="stylesheet">
 
 <title>Inscription</title>
 
@@ -67,25 +68,37 @@
 			<div class="row">
 				<div class="col-md-4">
 					<h2>Pseudo</h2>
-					<div class="input-group">
-						<span class="input-group-addon"><span
-							class="glyphicon glyphicon-user"></span> </span> <input name="pseudo"
-							type="text" th:value="${utilisateur.pseudo}" class="form-control"
-							placeholder="Pseudo" />
-					</div>
-					<p>
-					<div id="errors" th:text="${error_utilisateur_pseudo}"></div>
-					</p>
+
+					<c:set var="pseudo_test" scope="session"
+						value="${flag_utilisateur_pseudo}" />
+
+
+					<c:choose>
+						<c:when test="${pseudo_test==1}">
+
+							<div class="form-group has-error">
+
+								<input type="text" value="${pseudo}" class="form-control" name="pseudo"
+									th:value="${utilisateur.pseudo}" /> <label
+									class="control-label" for="inputError">${error_utilisateur_pseudo}</label>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="form-group">
+								<input name="pseudo" type="text"
+									th:value="${utilisateur.pseudo}" class="form-control"
+									placeholder="Pseudo" value="${pseudo}" />
+							</div>
+						</c:otherwise>
+					</c:choose>
+
 
 				</div>
-				<!-- 
-		<div id="errors" th:text="${error_utilisateur_pseudo}" />
- -->
 				<div class="col-md-4">
 					<h2>Heading</h2>
 					<div class="form-group has-error">
 						<label class="control-label" for="inputError">Input with
-							error</label> <input type="text" class="form-control" id="inputError"/>
+							error</label> <input type="text" class="form-control" id="inputError" />
 					</div>
 
 

@@ -46,10 +46,16 @@ public class InscriptionController implements IInscriptionController{
 	@RequestMapping(value="/Inscription", method=RequestMethod.POST)
     public String validerInscription(@Valid Utilisateur utilisateur , BindingResult bindingResult, 
             RedirectAttributes redirectAttributes) {
+		redirectEntries(bindingResult, redirectAttributes);
 		System.out.println("liste des erreurs");
+		System.out.println("Pseudo vaut "+bindingResult.getFieldValue("pseudo"));
+		
+		
 		for(FieldError error : bindingResult.getFieldErrors()){
 			String erreur = "error_"+error.getObjectName()+"_"+error.getField();
+			String flag = "flag_"+error.getObjectName()+"_"+error.getField();
 			redirectAttributes.addFlashAttribute(erreur,error.getField()+" "+ bindingResult.getFieldError().getDefaultMessage());
+			redirectAttributes.addFlashAttribute(flag,"1");
 		}
 		System.out.println("-----------------------------------------------");
     	/*
@@ -104,6 +110,16 @@ public class InscriptionController implements IInscriptionController{
         }
         return "rest";
     }
+	
+	/**
+	 * Permet de rediriger les entrées de l'utilisateur vers le formulaire d'origine
+	 * @param bindingResult
+	 * @param redirectAttributes
+	 */
+	public void redirectEntries(BindingResult bindingResult, RedirectAttributes redirectAttributes){
+		redirectAttributes.addFlashAttribute("pseudo",bindingResult.getFieldValue("pseudo"));
+		
+	}
    
     /*
     @RequestMapping(value="/Inscription", method=RequestMethod.POST)
