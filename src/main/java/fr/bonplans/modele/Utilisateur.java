@@ -10,10 +10,14 @@ import java.util.ArrayList;
 
 
 
+
+
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Required;
@@ -31,6 +35,9 @@ public class Utilisateur /*implements IUtilisateur*/{
 	
 	@NotEmpty
 	private String pseudo;
+	
+	@NotEmpty
+	private String email;
 	private String role;
 	
 	@NotEmpty
@@ -42,14 +49,21 @@ public class Utilisateur /*implements IUtilisateur*/{
 	@NotEmpty
 	private String prenom;
 
-	@NotEmpty
 	private String date_de_naissance;
 	private String date_inscription;
-	private ArrayList<IAdresse> adresses;
+	
+	
+	private ArrayList<IAdresse> adresses = new ArrayList<IAdresse>();
 	private ArrayList<IContact> contacts;
 	
 	
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getId() {
 		return id;
 	}

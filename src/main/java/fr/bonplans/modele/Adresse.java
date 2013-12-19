@@ -1,5 +1,6 @@
 package fr.bonplans.modele;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
 import fr.bonplans.modele.interfaces.IAdresse;
@@ -9,17 +10,32 @@ public class Adresse implements IAdresse{
 	
 	@Id
 	private String id;
+	@NotEmpty
 	private String type;
+	@NotEmpty
 	private String numero;
+	@NotEmpty
 	private String type_de_voie;
+	@NotEmpty
+	private String nom_de_voie;
 	private String complement;
+	@NotEmpty
 	private String code_postal;
+	@NotEmpty
 	private String ville;
 	
 	
 	
 	
 	
+	public String getNom_de_voie() {
+		return nom_de_voie;
+	}
+
+	public void setNom_de_voie(String nom_de_voie) {
+		this.nom_de_voie = nom_de_voie;
+	}
+
 	public String getId() {
 		return id;
 	}
