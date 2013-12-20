@@ -116,12 +116,17 @@ public class InscriptionController implements IInscriptionController{
 	 * @param redirectAttributes
 	 */
 	public void redirectEntries(BindingResult bindingResult, RedirectAttributes redirectAttributes){
+		System.out.println("Erreurs");
+		String erreur;
+		String flag;
 		for(FieldError error : bindingResult.getFieldErrors()){
-			String erreur = "error_"+error.getObjectName()+"_"+error.getField();
-			String flag = "flag_"+error.getObjectName()+"_"+error.getField();
-			redirectAttributes.addFlashAttribute(erreur,error.getField()+" "+ bindingResult.getFieldError().getDefaultMessage());
+			erreur = "error_"+error.getObjectName()+"_"+error.getField();
+			flag = "flag_"+error.getObjectName()+"_"+error.getField();
+			redirectAttributes.addFlashAttribute(erreur, error.getDefaultMessage());
 			redirectAttributes.addFlashAttribute(flag,"1");
+			System.out.println(error.getObjectName()+"_"+error.getField()+" erreur de type : "+error.getDefaultMessage());
 		}
+		System.out.println("--------------------------------------------------------");
 		redirectAttributes.addFlashAttribute("pseudo",bindingResult.getFieldValue("pseudo"));
 		redirectAttributes.addFlashAttribute("email",bindingResult.getFieldValue("email"));
 		redirectAttributes.addFlashAttribute("nom",bindingResult.getFieldValue("nom"));

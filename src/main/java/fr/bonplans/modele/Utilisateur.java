@@ -4,51 +4,54 @@ import java.util.ArrayList;
 
 
 
+import javax.validation.constraints.Pattern;
 
 
-
-
-
-
-
-
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
+
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Required;
+
 import org.springframework.data.annotation.Id;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import fr.bonplans.modele.interfaces.IAdresse;
 import fr.bonplans.modele.interfaces.IContact;
-import fr.bonplans.modele.interfaces.IUtilisateur;
+
 
 public class Utilisateur /*implements IUtilisateur*/{
 
 	@Id
     private String id;
 	
-	@NotEmpty
+	@NotEmpty(message = "Ce champ est indispensable pour vous identifier sur le site")
+	@Length(min = 5, max = 10, message = "Le pseudo doit contenir entre 5 et 10 caractères")
+	@Pattern(regexp = "[a-zA-Z0-9_.-]*",message = "Pseudo mal formé")
 	private String pseudo;
 	
-	@NotEmpty
+	@NotEmpty(message = "Vous devez entrer une adresse email valide")
+	@Email(message = "Vous devez entrer une adresse email valide")
 	private String email;
+	
 	private String role;
 	
 	@NotEmpty
+	@Length(min = 8, max = 20, message = "Le mot de passe doit contenir au moins 8 caractères")
+	@Pattern(regexp = "[a-zA-Z0-9_.-:!;?]*",message = "Pseudo mal formé")
 	private String password;
 	
 	@NotEmpty
+	@Length(min=1, max= 20,message = "20 caractères maximum pour le nom")
+	@Pattern(regexp = "[a-zA-Z-]*",message = "Caractère interdit")
 	private String nom;
 	
 	@NotEmpty
+	@Length(min=1, max= 20,message = "20 caractères maximum pour le prenom")
+	@Pattern(regexp = "[a-zA-Z-]*",message = "Caractère interdit")
 	private String prenom;
-
+	
+	@NotEmpty
+	@Pattern(regexp = "[0-9]{2}/[0-9]{2}/[0-9]{4}$",message = "Format date incorrect")
 	private String date_de_naissance;
 	private String date_inscription;
 	
