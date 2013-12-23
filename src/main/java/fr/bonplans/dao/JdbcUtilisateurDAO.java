@@ -23,7 +23,7 @@ public class JdbcUtilisateurDAO implements UtilisateurDAO {
 	@Override
 	public void register(Utilisateur utilisateur) {
 		String sql = "INSERT INTO UTILISATEUR " +
-				"(pseudo,email, role,password,nom,prenom,date_de_naissance,date_inscription,) VALUES (?,?, ?,?,?,?,?,?)";
+				"(pseudo,email, role,password,nom,prenom,date_de_naissance,date_inscription) VALUES (?,?, ?,?,?,?,?,?)";
 		Connection conn = null;
 		
 		try {

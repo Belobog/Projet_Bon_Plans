@@ -1,5 +1,7 @@
 package fr.bonplans.modele.interfaces;
 
+import fr.bonplans.modele.Utilisateur;
+
 public interface IAdresse {
 	
 	
@@ -17,5 +19,7 @@ public interface IAdresse {
 	public void setCode_postal(String code_postal);
 	public String getVille();
 	public void setVille(String ville);
+	public Utilisateur getUtilisateur();
+	public void setUtilisateur(Utilisateur utilisateur);
 	
 }

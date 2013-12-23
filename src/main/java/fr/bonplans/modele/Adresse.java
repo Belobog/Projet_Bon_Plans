@@ -25,6 +25,9 @@ public class Adresse implements IAdresse{
 	private String ville;
 	
 	
+	private Utilisateur utilisateur;
+	
+	
 	
 	
 	
@@ -82,6 +85,16 @@ public class Adresse implements IAdresse{
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+	
+	
 	
 	
 	

@@ -8,9 +8,10 @@ public class Contact implements IContact {
 	
 	@Id
 	private String id;
-	private String type;
+	private String type_;
 	private String mail;
 	private String numero;
+	private Utilisateur utilisateur;
 	
 	
 	
@@ -20,11 +21,11 @@ public class Contact implements IContact {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getType() {
-		return type;
+	public String getType_() {
+		return type_;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setType_(String type_) {
+		this.type_ = type_;
 	}
 	public String getMail() {
 		return mail;
@@ -38,6 +39,13 @@ public class Contact implements IContact {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+	
 	
 	
 
