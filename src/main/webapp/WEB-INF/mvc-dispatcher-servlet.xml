@@ -25,6 +25,8 @@
 		</property>
 	</bean>
 	
+	<import resource="Spring-Datasource.xml"/>
+	
 	
 
 </beans>
