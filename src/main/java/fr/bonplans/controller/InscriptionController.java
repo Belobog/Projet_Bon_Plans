@@ -4,42 +4,28 @@ package fr.bonplans.controller;
 
 
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.validation.Valid;
 
-import org.joda.time.DateTime;
-import org.joda.time.LocalTime;
-import org.joda.time.format.DateTimeFormatter;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.format.annotation.DateTimeFormat;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import fr.bonplans.beans.DataSourceConfig;
-import fr.bonplans.controller.interfaces.IAccueilController;
 import fr.bonplans.controller.interfaces.IInscriptionController;
 import fr.bonplans.dao.interfaces.UtilisateurDAO;
-import fr.bonplans.modele.Adresse;
-import fr.bonplans.modele.Contact;
-import fr.bonplans.modele.Person;
+
 import fr.bonplans.modele.Utilisateur;
-import fr.bonplans.modele.interfaces.IAdresse;
-import fr.bonplans.modele.interfaces.IContact;
-import fr.bonplans.modele.interfaces.IUtilisateur;
-import fr.bonplans.repositories.ContactRepository;
-import fr.bonplans.repositories.UtilisateurRepository;
+
 
 
 @Controller
@@ -47,13 +33,28 @@ public class InscriptionController implements IInscriptionController{
 
 	//@Autowired
 	//private UtilisateurRepository repository;
-
+	
+	
+	/**
+	 * Cette méthode est à l'écoute des requetes de types get lorsque l'utilisateur est redirigé vers
+	 * le lien Inscription
+	 * @param utilisateur
+	 * @return
+	 */
 	@RequestMapping(value="/Inscription", method=RequestMethod.GET)
 	public String showInscription(Utilisateur utilisateur) {
 		System.out.println("Inscription");
 		return "Inscription";
 	}
-
+	
+	/**
+	 * Cette méthode est à l'écoute des requetes de types post lorsque l'utilisateur est redirigé vers
+	 * le lien Inscription
+	 * @param utilisateur
+	 * @param bindingResult
+	 * @param redirectAttributes
+	 * @return
+	 */
 	@RequestMapping(value="/Inscription", method=RequestMethod.POST)
 	public String validerInscription(@Valid Utilisateur utilisateur , BindingResult bindingResult, 
 			RedirectAttributes redirectAttributes) {
@@ -62,18 +63,28 @@ public class InscriptionController implements IInscriptionController{
 		
 		
 		if (bindingResult.hasErrors()) {
+			System.out.println("On a des erreurs");
 			redirectEntries(bindingResult, redirectAttributes);
 			return "redirect:/Inscription";
 		}
 		else{
-			register(utilisateur);
+			System.out.println("Pas d'erreurs");
 			
-			return "rest";
+			if(register(utilisateur))return "OK";
+			else return "KO";
+			
 		}
 		
 	}
-
-	public void register(Utilisateur utilisateur) {
+	
+	/**
+	 * Cette méthode permet d'enregistrer en base un utilisateur qui vient de s'inscrire
+	 * Attention si l'utilisateur identifié existe déjà en base la fonction renvoie false 
+	 * et l'utilisateur n'est pas enregistré.
+	 * @param utilisateur
+	 * @return
+	 */
+	public boolean register(Utilisateur utilisateur) {
 		utilisateur.setContacts(null);
 		utilisateur.setAdresses(null);
 		utilisateur.setRole("nouveau");
@@ -86,7 +97,11 @@ public class InscriptionController implements IInscriptionController{
 		
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) context.getBean("UtilisateurDAO");
         
-        utilisateurDAO.register(utilisateur);
+        if(utilisateurDAO.isEmailAvailable(utilisateur.getEmail())){
+        	utilisateurDAO.register(utilisateur);
+        	return true;
+        }
+        else return false;
 		
 	}
 
@@ -99,6 +114,7 @@ public class InscriptionController implements IInscriptionController{
 		String erreur;
 		String flag;
 		for(FieldError error : bindingResult.getFieldErrors()){
+			System.out.println("champs qui fait chier "+error.getField());
 			erreur = "error_"+error.getObjectName()+"_"+error.getField();
 			flag = "flag_"+error.getObjectName()+"_"+error.getField();
 			redirectAttributes.addFlashAttribute(erreur, error.getDefaultMessage());

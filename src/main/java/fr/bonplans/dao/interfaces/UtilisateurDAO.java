@@ -9,5 +9,6 @@ public interface UtilisateurDAO {
 	public void insert(Utilisateur utilisateur);
 
 	void register(Utilisateur utilisateur);
+	public boolean isEmailAvailable(String email);
 
 }

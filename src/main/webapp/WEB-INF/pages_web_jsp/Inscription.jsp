@@ -21,7 +21,7 @@
 <!--=== Content Part ===-->    
 <div class="container">
     <!--Reg Block-->
-    <form th:action="@{/Inscription}" method="post">
+    <form th:action="@{/Inscription}" onsubmit="return validerInscription()" method="post">
     <div class="reg-block">
         <div class="reg-block-header">
             <h2>Sign Up</h2>
@@ -35,31 +35,57 @@
             <p>Already Signed Up? Click <a class="color-green" href="page_login1.html">Sign In</a> to login your account.</p>
         </div>
 
-        <div class="input-group margin-bottom-20">
+        <div name="div_pseudo" class="input-group margin-bottom-10">
             <span class="input-group-addon"><i class="icon-user"></i></span>
-            <input type="text" class="form-control" placeholder="Username">
+            <input name="pseudo" type="text" class="form-control" placeholder="Pseudo">
         </div>
-        <div class="input-group margin-bottom-20">
+        
+        
+        
+        
+        <div name="div_nom" class="input-group margin-bottom-10">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input name="nom" type="text" class="form-control" placeholder="Nom">
+        </div>
+        
+        <div name="div_prenom" class="input-group margin-bottom-10">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input name="prenom" type="text" class="form-control" placeholder="Prénom">
+        </div>
+        
+        <div name="div_date_de_naissance" class="input-group margin-bottom-10">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input name="date_de_naissance" type="date" class="form-control" placeholder="Date de naissance">
+        </div>
+        
+       
+        
+        <div name="div_email" class="input-group margin-bottom-10">
             <span class="input-group-addon"><i class="icon-envelope"></i></span>
-            <input type="text" class="form-control" placeholder="Email">
+            <input name="email" type="text" class="form-control" placeholder="Email">
         </div>
-        <div class="input-group margin-bottom-20">
+        
+        <div name="div_password" class="input-group margin-bottom-10">
             <span class="input-group-addon"><i class="icon-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Password">
+            <input name="password" type="password" class="form-control" placeholder="Mot de passe">
         </div>
-        <div class="input-group margin-bottom-30">
+        
+        <div name="div_confirm_password" class="input-group margin-bottom-10">
             <span class="input-group-addon"><i class="icon-key"></i></span>
-            <input type="text" class="form-control" placeholder="Confirm Password">
+            <input name="confirm_password" type="password" class="form-control" placeholder="Confirmer votre mot de passe">
         </div>
+        
+        
+        
         <hr>
-        <label class="checkbox">
-            <input type="checkbox"> 
-            <p>I read <a target="_blank" href="page_terms.html">Terms and Conditions</a></p>
+        <label name="label_checkbox" class="checkbox">
+            <input name="checkbox" type="checkbox"> 
+            <p>J ai lu les <a target="_blank" href="page_terms.html">Conditions d'utilisation</a></p>
         </label>
                                 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <button type="submit" class="btn-u btn-block">Register</button>                
+                <button  type="submit" class="btn-u btn-block">Register</button>                
             </div>
         </div>
     </div>
@@ -77,6 +103,7 @@
 <!-- JS Implementing Plugins -->           
 <script type="text/javascript" src="/bonplans/resources/assets/plugins/countdown/jquery.countdown.js"></script>
 <script type="text/javascript" src="/bonplans/resources/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="/bonplans/resources/assets/js/implementations/validerInscription.js"></script>
 <script type="text/javascript">
     $.backstretch([
       "/bonplans/resources/assets/img/bg/5.jpg",

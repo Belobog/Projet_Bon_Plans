@@ -22,45 +22,45 @@ import fr.bonplans.modele.interfaces.IContact;
 public class Utilisateur /*implements IUtilisateur*/{
 
 	@Id
-    private String id;
-	
+	private String id;
+
 	@NotEmpty(message = "Ce champ est indispensable pour vous identifier sur le site")
 	@Length(min = 5, max = 10, message = "Le pseudo doit contenir entre 5 et 10 caractères")
 	@Pattern(regexp = "[a-zA-Z0-9_.-]*",message = "Pseudo mal formé")
 	private String pseudo;
-	
+
 	@NotEmpty(message = "Vous devez entrer une adresse email valide")
 	@Email(message = "Vous devez entrer une adresse email valide")
 	private String email;
-	
+
 	private String role;
-	
+
 	@NotEmpty
 	@Length(min = 8, max = 20, message = "Le mot de passe doit contenir au moins 8 caractères")
-	@Pattern(regexp = "[a-zA-Z0-9_.-:!;?]*",message = "Pseudo mal formé")
+	//@Pattern(regexp = "/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}/," message = "Password must contain one digit."),
 	private String password;
-	
+
 	@NotEmpty
 	@Length(min=1, max= 20,message = "20 caractères maximum pour le nom")
 	@Pattern(regexp = "[a-zA-Z-]*",message = "Caractère interdit")
 	private String nom;
-	
+
 	@NotEmpty
 	@Length(min=1, max= 20,message = "20 caractères maximum pour le prenom")
 	@Pattern(regexp = "[a-zA-Z-]*",message = "Caractère interdit")
 	private String prenom;
-	
+
 	@NotEmpty
 	@Pattern(regexp = "[0-9]{2}/[0-9]{2}/[0-9]{4}$",message = "Format date incorrect")
 	private String date_de_naissance;
 	private String date_inscription;
-	
-	
+
+
 	private ArrayList<IAdresse> adresses = new ArrayList<IAdresse>();
 	private ArrayList<IContact> contacts;
-	
-	
-	
+
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -73,19 +73,19 @@ public class Utilisateur /*implements IUtilisateur*/{
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getPseudo() {
 		return pseudo;
 	}
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
-	
+
+
 	public String getRole() {
 		return role;
 	}
@@ -131,8 +131,8 @@ public class Utilisateur /*implements IUtilisateur*/{
 	public void setContacts(ArrayList<IContact> contacts) {
 		this.contacts = contacts;
 	}
-	
-	
 
-	
+
+
+
 }
