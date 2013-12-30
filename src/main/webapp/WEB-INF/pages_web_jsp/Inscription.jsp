@@ -32,7 +32,7 @@
                 <li><a href="#"><i class="icon-twitter icon-round icon-round-sm icon-color-grey"></i></a></li>
                 <li><a href="#"><i class="icon-rss icon-round icon-round-sm icon-color-grey"></i></a></li>
             </ul>
-            <p>Already Signed Up? Click <a class="color-green" href="page_login1.html">Sign In</a> to login your account.</p>
+            <p>Deja inscrit ? Cliquez ici <a class="color-green" href="Connexion">Connexion</a> </p>
         </div>
 
         <div name="div_pseudo" class="input-group margin-bottom-10">

@@ -43,7 +43,7 @@ public class InscriptionController implements IInscriptionController{
 	 */
 	@RequestMapping(value="/Inscription", method=RequestMethod.GET)
 	public String showInscription(Utilisateur utilisateur) {
-		System.out.println("Inscription");
+		System.out.println("showInscription");
 		return "Inscription";
 	}
 	
@@ -61,15 +61,12 @@ public class InscriptionController implements IInscriptionController{
 
 		
 		
-		
+		System.out.println("validerInscription");
 		if (bindingResult.hasErrors()) {
-			System.out.println("On a des erreurs");
 			redirectEntries(bindingResult, redirectAttributes);
 			return "redirect:/Inscription";
 		}
 		else{
-			System.out.println("Pas d'erreurs");
-			
 			if(register(utilisateur))return "OK";
 			else return "KO";
 			
@@ -85,12 +82,13 @@ public class InscriptionController implements IInscriptionController{
 	 * @return
 	 */
 	public boolean register(Utilisateur utilisateur) {
+		System.out.println("register");
 		utilisateur.setContacts(null);
 		utilisateur.setAdresses(null);
 		utilisateur.setRole("nouveau");
 		Date date__inscription = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("la date formaté vaut : "+format.format(date__inscription));
+		//System.out.println("la date formaté vaut : "+format.format(date__inscription));
 		utilisateur.setDate_inscription(format.format(date__inscription));
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Datasource.xml");
@@ -111,10 +109,11 @@ public class InscriptionController implements IInscriptionController{
 	 * @param redirectAttributes
 	 */
 	public void redirectEntries(BindingResult bindingResult, RedirectAttributes redirectAttributes){
+		System.out.println("redirectEntries");
 		String erreur;
 		String flag;
 		for(FieldError error : bindingResult.getFieldErrors()){
-			System.out.println("champs qui fait chier "+error.getField());
+			//System.out.println("champs qui fait chier "+error.getField());
 			erreur = "error_"+error.getObjectName()+"_"+error.getField();
 			flag = "flag_"+error.getObjectName()+"_"+error.getField();
 			redirectAttributes.addFlashAttribute(erreur, error.getDefaultMessage());
