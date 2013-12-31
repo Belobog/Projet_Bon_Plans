@@ -14,12 +14,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		System.out.println("configure");
 		http
 		.authorizeRequests()
-		.antMatchers("/home").permitAll()
+		.antMatchers("/","/Accueil","/Inscription").permitAll()
 		.anyRequest().authenticated();
 		http
 		.formLogin()
-		.defaultSuccessUrl("/hello")
-		.loginPage("/login")
+		.defaultSuccessUrl("/ok")
+		.loginPage("/Connexion")
 		.permitAll()
 		.and()
 		.logout()
