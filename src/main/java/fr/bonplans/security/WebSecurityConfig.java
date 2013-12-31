@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder authManagerBuilder) throws Exception {
+		//authManagerBuilder.jdbcAuthentication().usersByUsernameQuery("SELECT email,password FROM utilisateur WHERE email = ?").authoritiesByUsernameQuery("SELECT email,role FROM utilisateur WHERE email = ?");
 		System.out.println("configure2");
 		authManagerBuilder.inMemoryAuthentication()
 		.withUser("user").password("password").roles("USER");

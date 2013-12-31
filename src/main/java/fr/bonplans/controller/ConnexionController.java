@@ -12,6 +12,14 @@ public class ConnexionController implements IConnexionController {
 	
 	@RequestMapping(value="/Connexion",method=RequestMethod.GET)
 	public String showConnexion(){
+		System.out.println("showConnexion()");
+		return "Connexion";
+	}
+	
+	
+	@RequestMapping(value="/Connexion",method=RequestMethod.POST)
+	public String confirmConnexion(){
+		System.out.println("confirmConnexion()");
 		return "Connexion";
 	}
 
