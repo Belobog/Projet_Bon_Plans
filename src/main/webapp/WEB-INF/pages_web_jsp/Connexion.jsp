@@ -19,6 +19,7 @@
 <!--=== Content Part ===-->    
 <div class="container">
     <!--Reg Block-->
+    <form th:action="@{/Connexion}" method="post">
     <div class="reg-block">
         <div class="reg-block-header">
             <h2>Sign In</h2>
@@ -30,15 +31,20 @@
                 <li><a href="#"><i class="icon-rss icon-round icon-round-sm icon-color-grey"></i></a></li>
             </ul>
         </div>
+        
+       
 
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-envelope"></i></span>
-            <input type="text" class="form-control" placeholder="Email">
+            <input name="email" type="text" class="form-control" placeholder="Email">
         </div>
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Password">
+            <input name="password" type="password" class="form-control" placeholder="Password">
         </div>
+        
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        
         <hr>
         <label class="checkbox">
             <input type="checkbox"> 
@@ -51,6 +57,7 @@
             </div>
         </div>
     </div>
+    </form>
     <!--End Reg Block-->
 </div><!--/container-->
 <!--=== End Content Part ===-->
