@@ -13,6 +13,7 @@ public class ConnexionController implements IConnexionController {
 	@RequestMapping(value="/Connexion",method=RequestMethod.GET)
 	public String showConnexion(){
 		System.out.println("showConnexion()");
+		System.out.println("test");
 		return "Connexion";
 	}
 	
