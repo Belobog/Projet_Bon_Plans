@@ -14,7 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		System.out.println("configure");
 		http
 		.authorizeRequests()
-		.antMatchers("/","/Accueil","/Inscription").permitAll().anyRequest().authenticated();
+		.antMatchers("/","/Accueil","/Inscription","/resources/**").permitAll().anyRequest().authenticated();
 		http
 		.formLogin()
 		.defaultSuccessUrl("/Ok")

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/bonplans/resources/assets/css/style.css">
     <link rel="stylesheet" href="/bonplans/resources/assets/css/headers/header1.css">
     <link rel="stylesheet" href="/bonplans/resources/assets/css/responsive.css">
-    <link rel="shortcut icon" href="favicon.ico">        
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->        
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="/bonplans/resources/assets/css/themes/default.css" id="style_color">
     <link rel="stylesheet" href="/bonplans/resources/assets/css/themes/headers/default.css" id="style_color-header-1">    
