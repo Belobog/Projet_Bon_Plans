@@ -25,13 +25,13 @@ public class ConnexionController implements IConnexionController {
 	}
 	
 	
-	@RequestMapping(value="/Connexion",method=RequestMethod.POST)
+	@RequestMapping(value="/ConnexionOk",method=RequestMethod.GET)
 	public String confirmConnexion(HttpServletRequest request,String email,String password){
 		
 		System.out.println("email vaut : "+email);
 		System.out.println("password vaut : "+password);
 		System.out.println("confirmConnexion()");
-		return "Ok";
+		return "ConnexionOk";
 	}
 
 }
