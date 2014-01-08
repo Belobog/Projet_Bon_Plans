@@ -17,7 +17,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/","/Accueil","/Inscription","/resources/**").permitAll().anyRequest().authenticated();
 		http
 		.formLogin()
-		.defaultSuccessUrl("/Ok")
 		.loginPage("/Connexion")
 		.permitAll()
 		.and()
@@ -30,6 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//authManagerBuilder.jdbcAuthentication().usersByUsernameQuery("SELECT email,password FROM utilisateur WHERE email = ?").authoritiesByUsernameQuery("SELECT email,role FROM utilisateur WHERE email = ?");
 		System.out.println("configure2");
 		authManagerBuilder.inMemoryAuthentication()
-		.withUser("user").password("password").roles("USER");
+		.withUser("email").password("password").roles("USER");
 	}
 }
