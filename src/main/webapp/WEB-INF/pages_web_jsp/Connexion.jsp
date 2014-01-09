@@ -45,6 +45,14 @@
         
         <input type="hidden"   name="${_csrf.parameterName}" value="${_csrf.token}"/>
         
+        
+        
+		<div class="errorblock">
+			Your login attempt was not successful, try again.<br /> Caused :
+			${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+		</div>
+	
+        
         <hr>
         <label class="checkbox">
             <input type="checkbox"> 
