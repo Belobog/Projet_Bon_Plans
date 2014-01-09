@@ -12,6 +12,7 @@ CREATE TABLE if not exists utilisateur (
              prenom CHAR(30) NOT NULL,
              date_de_naissance CHAR(10) NOT NULL,
              date_inscription CHAR(10) NOT NULL,
+             active CHAR(1) NOT NULL,
              PRIMARY KEY (id)
 );
              

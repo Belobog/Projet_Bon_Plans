@@ -19,7 +19,7 @@
 <!--=== Content Part ===-->    
 <div class="container">
     <!--Reg Block-->
-    <form action="Connexion"  method="post">
+    <form action="Connexion" onsubmit="return validerConnexion()" method="post">
     <div class="reg-block">
         <div class="reg-block-header">
             <h2>Sign In</h2>
@@ -34,11 +34,11 @@
         
        
 
-        <div class="input-group margin-bottom-20">
+        <div name="div_email" class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-envelope"></i></span>
             <input name="security_username" id="security_username" type="text" class="form-control" placeholder="Email">
         </div>
-        <div class="input-group margin-bottom-20">
+        <div name="div_password" class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-lock"></i></span>
             <input name="security_password" id="security_password" type="password" class="form-control" placeholder="Password">
         </div>
@@ -46,14 +46,16 @@
         <input type="hidden"   name="${_csrf.parameterName}" value="${_csrf.token}"/>
         
         
+        <p name="message_erreur">${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
         
-		<div class="errorblock">
-			Your login attempt was not successful, try again.<br /> Caused :
-			${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-		</div>
+        
+				
 	
-        
-        <hr>
+
+				
+
+
+				<hr>
         <label class="checkbox">
             <input type="checkbox"> 
             <p>Always stay signed in</p>
@@ -79,6 +81,7 @@
 <!-- JS Implementing Plugins -->           
 <script type="text/javascript" src="/bonplans/resources/assets/plugins/countdown/jquery.countdown.js"></script>
 <script type="text/javascript" src="/bonplans/resources/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="/bonplans/resources/assets/js/implementations/validerConnexion.js"></script>
 <script type="text/javascript">
     $.backstretch([
       "/bonplans/resources/assets/img/bg/5.jpg",
