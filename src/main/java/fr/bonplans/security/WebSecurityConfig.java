@@ -33,6 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.formLogin()
 		.defaultSuccessUrl("/ConnexionOk",true)
 		.loginPage("/Connexion")
+		.usernameParameter("security_username")
+        .passwordParameter("security_password")
 		.permitAll()
 		.and()
 		.logout()
@@ -46,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		dataSource = (DataSource) context.getBean("dataSource");
 		
 
-		authManagerBuilder.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("SELECT email AS Username ,password as password, active as enabled FROM utilisateur WHERE email = ? and password = ?").authoritiesByUsernameQuery("SELECT email AS Username,role as authority FROM utilisateur WHERE email = '?'");
+		authManagerBuilder.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("SELECT email AS Username ,password as password, active as enabled FROM utilisateur WHERE email = ?").authoritiesByUsernameQuery("SELECT email AS Username,role as authority FROM utilisateur WHERE email =?");
 		System.out.println("configure2");
 		//authManagerBuilder.inMemoryAuthentication().withUser("email").password("password").roles("USER");
 	}

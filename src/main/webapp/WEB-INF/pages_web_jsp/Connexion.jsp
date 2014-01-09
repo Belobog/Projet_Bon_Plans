@@ -36,11 +36,11 @@
 
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-envelope"></i></span>
-            <input name="username" type="text" class="form-control" placeholder="Email">
+            <input name="security_username" id="security_username" type="text" class="form-control" placeholder="Email">
         </div>
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-lock"></i></span>
-            <input name="password" type="password" class="form-control" placeholder="Password">
+            <input name="security_password" id="security_password" type="password" class="form-control" placeholder="Password">
         </div>
         
         <input type="hidden"   name="${_csrf.parameterName}" value="${_csrf.token}"/>
