@@ -85,7 +85,6 @@ public class InscriptionController implements IInscriptionController{
 		System.out.println("register");
 		utilisateur.setContacts(null);
 		utilisateur.setAdresses(null);
-		utilisateur.setRole("nouveau");
 		Date date__inscription = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		//System.out.println("la date formaté vaut : "+format.format(date__inscription));

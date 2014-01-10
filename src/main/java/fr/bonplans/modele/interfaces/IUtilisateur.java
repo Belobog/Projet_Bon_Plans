@@ -8,8 +8,6 @@ public interface IUtilisateur {
 	public void setId(String id);
 	public String getPseudo() ;
 	public void setPseudo(String pseudo);
-	public String getRole() ;
-	public void setRole(String role);
 	public String getPassword();
 	public void setPassword(String password);
 	public String getNom();

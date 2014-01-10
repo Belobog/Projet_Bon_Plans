@@ -71,7 +71,26 @@ CREATE TABLE if not exists article (
              titre CHAR(100) NOT NULL,
              sous_titre CHAR(254) NOT NULL,
              url_image  CHAR(200) NOT NULL,
-             date_de_naissance CHAR(19) NOT NULL,
-             date_inscription CHAR(19) NOT NULL,
+             date_de_ecriture CHAR(19) NOT NULL,
+             date_de_modification CHAR(19) NOT NULL,
              PRIMARY KEY (id)
+);
+
+
+CREATE TABLE if not exists categorie (
+             id MEDIUMINT NOT NULL AUTO_INCREMENT,
+             nom CHAR(100) NOT NULL,
+             PRIMARY KEY (id)
+);
+
+
+CREATE TABLE if not exists article_to_categorie (
+			 id_article MEDIUMINT NOT NULL,
+             id_categorie MEDIUMINT NOT NULL,
+             PRIMARY KEY(id_article, id_categorie),
+             FOREIGN KEY (id_article) REFERENCES article(id)
+                     ON DELETE CASCADE,
+             FOREIGN KEY (id_categorie) REFERENCES categorie(id)
+                     ON DELETE CASCADE
+             
 );

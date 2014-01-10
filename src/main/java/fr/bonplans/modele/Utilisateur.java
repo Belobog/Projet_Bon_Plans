@@ -33,7 +33,7 @@ public class Utilisateur /*implements IUtilisateur*/{
 	@Email(message = "Vous devez entrer une adresse email valide")
 	private String email;
 
-	private String role;
+	
 
 	@NotEmpty
 	@Length(min = 8, max = 20, message = "Le mot de passe doit contenir au moins 8 caractères")
@@ -86,12 +86,7 @@ public class Utilisateur /*implements IUtilisateur*/{
 	}
 
 
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
