@@ -1,21 +1,21 @@
 use bonplans;
 
-CREATE TABLE if not exists utilisateur (
-             id MEDIUMINT NOT NULL AUTO_INCREMENT,
-             pseudo CHAR(10) NOT NULL,
-             email CHAR(30) NOT NULL,
-             role CHAR(10) NOT NULL,
-             password CHAR(20) NOT NULL,
-             nom CHAR(30) NOT NULL,
-             prenom CHAR(30) NOT NULL,
-             date_de_naissance CHAR(10) NOT NULL,
-             date_inscription CHAR(10) NOT NULL,
-             active CHAR(1) NOT NULL,
-             PRIMARY KEY (id)
-);
-
-
-Insert Into utilisateur (pseudo,email,role,password,nom,prenom,date_de_naissance,date_inscription,active)
-values ('azerty','azerty@live.fr','admin','Azerty1234','azerty','azerty','01/01/1970','01/01/1970','1');
+#Remplissage de la table utilisateur
+Insert Into utilisateur (pseudo,email,password,nom,prenom,date_de_naissance,date_inscription,active)
+values ('azerty','azerty@live.fr','Azerty1234','azerty','azerty','01/01/1970','01/01/1970','1');
              
-             
+
+#Remplissage de la table role
+Insert into role (nom) 
+values ('admin');
+Insert into role (nom) 
+values ('moderateur');
+Insert into role (nom) 
+values ('auteur');
+Insert into role (nom) 
+values ('utilisateur');
+
+#Remplissage de la table role_to_utilisateur
+Insert into role_to_utilisateur (id_role,id_utilisateur)
+values (1,1);
+

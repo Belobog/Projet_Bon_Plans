@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		authManagerBuilder.jdbcAuthentication()
 		.dataSource(dataSource)
 		.usersByUsernameQuery("SELECT email AS Username ,password as password, active as enabled FROM utilisateur WHERE email = ?")
-		.authoritiesByUsernameQuery("SELECT email AS Username,role as authority FROM utilisateur WHERE email =?");
+		.authoritiesByUsernameQuery("SELECT utilisateur.email AS Username,role.nom as authority FROM utilisateur,role WHERE utilisateur.email =?");
 		System.out.println("configure2");
 		//authManagerBuilder.inMemoryAuthentication().withUser("email").password("password").roles("USER");
 	}
