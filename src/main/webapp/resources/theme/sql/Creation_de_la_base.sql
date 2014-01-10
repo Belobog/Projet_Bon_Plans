@@ -43,3 +43,14 @@ CREATE TABLE if not exists adresse (
              FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
                      ON DELETE CASCADE
 );
+
+
+CREATE TABLE if not exists article (
+             id MEDIUMINT NOT NULL AUTO_INCREMENT,
+             titre CHAR(100) NOT NULL,
+             sous_titre CHAR(300) NOT NULL,
+             url_image  CHAR(200) NOT NULL,
+             date_de_naissance CHAR(19) NOT NULL,
+             date_inscription CHAR(19) NOT NULL,
+             PRIMARY KEY (id)
+);
