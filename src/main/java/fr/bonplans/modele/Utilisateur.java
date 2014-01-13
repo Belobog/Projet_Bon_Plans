@@ -54,13 +54,23 @@ public class Utilisateur /*implements IUtilisateur*/{
 	@Pattern(regexp = "[0-9]{2}/[0-9]{2}/[0-9]{4}$",message = "Format date incorrect")
 	private String date_de_naissance;
 	private String date_inscription;
+	
+	private String active;
 
 
 	private ArrayList<IAdresse> adresses = new ArrayList<IAdresse>();
 	private ArrayList<IContact> contacts;
 
+	
+	
+	
 
-
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
+	}
 	public String getEmail() {
 		return email;
 	}

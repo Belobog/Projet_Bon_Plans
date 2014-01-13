@@ -26,7 +26,7 @@ public class JdbcUtilisateurDAO implements UtilisateurDAO {
 	@Override
 	public void register(Utilisateur utilisateur) {
 		String sql = "INSERT INTO UTILISATEUR " +
-				"(pseudo,email,password,nom,prenom,date_de_naissance,date_inscription) VALUES (?,?,?,?,?,?,?)";
+				"(pseudo,email,password,nom,prenom,date_de_naissance,date_inscription,active) VALUES (?,?,?,?,?,?,?,?)";
 		Connection conn = null;
 
 		try {
@@ -39,6 +39,7 @@ public class JdbcUtilisateurDAO implements UtilisateurDAO {
 			ps.setString(5, utilisateur.getPrenom());
 			ps.setString(6, utilisateur.getDate_de_naissance());
 			ps.setString(7, utilisateur.getDate_inscription());
+			ps.setString(8, utilisateur.getActive());
 
 			ps.executeUpdate();
 			ps.close();

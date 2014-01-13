@@ -21,7 +21,7 @@
 <!--=== Content Part ===-->    
 <div class="container">
     <!--Reg Block-->
-    <form th:action="@{/Inscription}" onsubmit="return validerInscription()" method="post">
+    <form action="Inscription" onsubmit="return validerInscription()" method="post">
     <div class="reg-block">
         <div class="reg-block-header">
             <h2>Sign Up</h2>
@@ -82,6 +82,8 @@
             <input name="checkbox" type="checkbox"> 
             <p>J ai lu les <a target="_blank" href="page_terms.html">Conditions d'utilisation</a></p>
         </label>
+        
+        <input type="hidden"   name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
