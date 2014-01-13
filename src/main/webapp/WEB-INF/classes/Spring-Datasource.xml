@@ -14,5 +14,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="UtilisateurDAO" class="fr.bonplans.dao.JdbcUtilisateurDAO">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="CategorieDAO" class="fr.bonplans.dao.JdbcCategorieDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 </beans>

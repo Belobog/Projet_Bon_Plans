@@ -1,5 +1,7 @@
 package fr.bonplans.modele;
 
+import java.util.ArrayList;
+
 import fr.bonplans.modele.interfaces.IArticle;
 
 public class Article implements IArticle{
@@ -11,6 +13,7 @@ public class Article implements IArticle{
 	private String url_image;
 	private String date_de_ecriture;
 	private String date_de_modification;
+	private ArrayList<Categorie> categories;
 	
 	
 	public String getId() {
@@ -49,6 +52,14 @@ public class Article implements IArticle{
 	public void setDate_de_modification(String date_de_modification) {
 		this.date_de_modification = date_de_modification;
 	}
+	public ArrayList<Categorie> getCategories() {
+		return categories;
+	}
+	public void setCategories(ArrayList<Categorie> categories) {
+		this.categories = categories;
+	}
+	
+	
 	
 	
 	
