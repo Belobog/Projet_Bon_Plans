@@ -21,9 +21,9 @@ public class ActualiteController implements IArctualiteController{
 
 
 	@RequestMapping(value="/Actualite")
-	public ModelAndView showArticle(  
+	public ModelAndView showActualite(  
 			RedirectAttributes redirectAttributes){
-		System.out.println("showArticle()");
+		System.out.println("showActualite()");
 		ModelAndView model = new ModelAndView("Actualite");
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Datasource.xml");

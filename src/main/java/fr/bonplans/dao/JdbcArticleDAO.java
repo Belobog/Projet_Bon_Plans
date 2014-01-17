@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 
 import fr.bonplans.dao.interfaces.ArticleDAO;
 import fr.bonplans.modele.Article;
+import fr.bonplans.modele.Categorie;
 
 
 
@@ -58,6 +59,30 @@ public class JdbcArticleDAO implements ArticleDAO{
 	
 	public void register(Article article){
 		insert(article);
+		for(Categorie categorie : article.getCategories()){
+			String sql = "INSERT INTO Article_to_Categorie " +
+					"(id_article,id_categorie) VALUES (?,?)";
+			Connection conn = null;
+			try {
+				conn = dataSource.getConnection();
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setString(1, article.getId());
+				ps.setString(2, categorie.getId());
+				
+				ps.executeUpdate();
+				ps.close();
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+
+			} finally {
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {}
+				}
+			}
+		}
 	}
 
 	/*
